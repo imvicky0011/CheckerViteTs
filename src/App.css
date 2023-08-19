@@ -1,0 +1,49 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  color: black;
+  font-weight: bold;
+  background-color: #c8bebe;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* styles.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items:normal;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #a78989;
+}
+
+.textfield {
+  width: 100%;
+  max-width: 300px;
+  background-color: #5b5a5a;
+}
+
+.textfield label {
+  color: aliceblue;
+}
+
+.button {
+  margin-top: 1rem;
+}
+
+.filterNav {
+  margin-top: 10px;
+  background-color: #787272;
+}
