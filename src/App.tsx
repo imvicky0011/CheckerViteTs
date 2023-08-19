@@ -1,7 +1,7 @@
 import './App.css';
 import FormPage from './components/FormPage'
 import ListPage from './components/ListPage'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {useState} from 'react'
 import Alert from '@mui/material/Alert'; // Import the Alert component
 
@@ -15,15 +15,13 @@ function App() {
           Please fill out the form first.
         </Alert>
       )}
-  <Router>
     <Routes>
 
       <Route path="/" element={<FormPage setNotify={setNotify}/>} />
       
       <Route path="/dataList" element={<ListPage setNotify={setNotify} />} />
     
-    </Routes>
-  </Router>
+  </Routes>
   </div>
 }
 
