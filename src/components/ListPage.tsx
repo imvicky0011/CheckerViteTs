@@ -12,7 +12,11 @@ interface Post {
   body: string;
 }
 
-function ListPage({setNotify}) {
+interface Prop {
+    setNotify: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ListPage: React.FC<Prop> = ({ setNotify }) => {
   const navigate = useNavigate()
 
   //creating a state variable for the post 

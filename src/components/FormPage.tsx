@@ -1,43 +1,40 @@
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function FormData({setNotify}) {
-  const navigate = useNavigate()
+interface FormDataProps {
+  setNotify: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FormData: React.FC<FormDataProps> = ({ setNotify }) => {
+  const navigate = useNavigate();
+
   const [fieldValues, setFieldValues] = useState({
     name: '',
     email: '',
     phone: '',
-  })
+  });
 
-  console.log(fieldValues)
+  console.log(fieldValues);
 
   const handleClick = () => {
-    //validating if the user has filled the form entirely
-    //we could validate extensively, but for now
-    //i am using this naive validation to make sure 
-    //user fills the form with all the field
-    if(!(fieldValues.name.length > 1 && fieldValues.email.length > 1 && fieldValues.phone.length > 1)) {
-      window.alert("Fill the form before submitting")
-      return
+    if (!(fieldValues.name.length > 1 && fieldValues.email.length > 1 && fieldValues.phone.length > 1)) {
+      window.alert("Fill the form before submitting");
+      return;
     }
 
-    //if the values are validated, then store them in the local Storage
     localStorage.setItem('formData', JSON.stringify(fieldValues));
-    setNotify(false)
-    navigate("/dataList")
+    setNotify(false);
+    navigate("/dataList");
   }
 
-
-  //inferring the tyeps of the data, to avoid the 'any' reference
   const handleFieldChanges = (fieldId: string, value: string) => {
-    console.log("coming")
     setFieldValues((prev) => ({
       ...prev,
       [fieldId]: value,
-    }))
+    }));
   }
 
   return (
